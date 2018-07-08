@@ -127,3 +127,24 @@ app_train['TARGET'] = train_labels
 
 print('Training Features shape: ', app_train.shape)
 print('Testing Features shape: ', app_test.shape)
+
+(app_train['DAYS_BIRTH'] / -365).describe()
+app_train['DAYS_EMPLOYED'].describe()
+app_train['DAYS_EMPLOYED'].plot.hist(title = 'Days Employment Histogram');
+plt.xlabel('Days Employment');
+
+anom = app_train[app_train['DAYS_EMPLOYED'] == 365243]
+non_anom = app_train[app_train['DAYS_EMPLOYED'] != 365243]
+print('The non-anomalies default on %0.2f%% of loans' % (100 * non_anom['TARGET'].mean()))
+print('The anomalies default on %0.2f%% of loans' % (100 * anom['TARGET'].mean()))
+print('There are %d anomalous days of employment out of %d total days' % 
+      (len(anom),len(app_train['DAYS_EMPLOYED'])))
+
+# Create an anomalous flag column
+app_train['DAYS_EMPLOYED_ANOM'] = app_train["DAYS_EMPLOYED"] == 365243
+
+# Replace the anomalous values with nan
+app_train['DAYS_EMPLOYED'].replace({365243: np.nan}, inplace = True)
+
+app_train['DAYS_EMPLOYED'].plot.hist(title = 'Days Employment Histogram');
+plt.xlabel('Days Employment');
