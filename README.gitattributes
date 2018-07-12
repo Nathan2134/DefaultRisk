@@ -1,1 +1,7 @@
-Please only store code snippets in here.
+Do not keep the data files in this folder. This folder is for code only.
+
+Please read installations.docx for installation instructions.
+
+Use the describe.py to generate descrptions about text and numerical
+fields in the data. These are stored in "text_stat.csv" and "num_stat.csv",
+respectively.
