@@ -32,11 +32,15 @@ print('Training data shape: ', app_train.shape)
 app_train.head()
 
 # Histogram
-x = app_train['TARGET'].describe()
-app_train['TARGET'].nunique()
+#x = app_train['TARGET'].describe()
+#app_train['TARGET'].nunique()
+text_stat = []
+num_stat = []
 for col in app_train:
     if app_train[col].dtype == 'object': 
-        print(app_train[col].value_counts())
+        unique_val = app_train[col].unique().tolist()
+        val_counts = app_train[col].value_counts().tolist()
+        text_stat.append([col, unique_val,val_counts, app_train[col].nunique()])
     # If numerical
     else:
         col_stat = app_train[col].describe()
@@ -54,8 +58,17 @@ for col in app_train:
         miss_val = app_train[col].isnull().sum()
         miss_val_perc = app_train[col].isnull().sum() / len(app_train[col])
         data_type = app_train[col].dtypes
-    
-
-    
+        num_stat.append([col, col_mean, col_std, col_min, col_25, col_50, col_75, 
+                         col_max, n_unique, n_unique_w_na, na_exist, miss_val,
+                         miss_val_perc, data_type])
+text_stat = pd.DataFrame(text_stat, columns=["column_name","unique valueus", "value counts", 
+                                            "number of unique values"])
+text_stat.to_csv("text_stat.csv", index = False)
+num_stat = pd.DataFrame(num_stat, columns=["column_name", "mean", "std", "min", "25%", "50%",
+                                           "75%","max", "number of unique val",
+                                           "number of unique with na", "na_exist",
+                                           "number of na", "percentage of na",
+                                           "data_type"])
+num_stat.to_csv("num_stat.csv", index = False)
 app_train['TARGET'].value_counts()
 app_train['TARGET'].astype(int).plot.hist();
