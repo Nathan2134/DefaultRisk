@@ -1,0 +1,17 @@
+column_name,unique valueus,value counts,number of unique values
+NAME_CONTRACT_TYPE,"['Cash loans', 'Revolving loans']","[278232, 29279]",2
+CODE_GENDER,"['M', 'F', 'XNA']","[202448, 105059, 4]",3
+FLAG_OWN_CAR,"['N', 'Y']","[202924, 104587]",2
+FLAG_OWN_REALTY,"['Y', 'N']","[213312, 94199]",2
+NAME_TYPE_SUITE,"['Unaccompanied', 'Family', 'Spouse, partner', 'Children', 'Other_A', nan, 'Other_B', 'Group of people']","[248526, 40149, 11370, 3267, 1770, 866, 271]",7
+NAME_INCOME_TYPE,"['Working', 'State servant', 'Commercial associate', 'Pensioner', 'Unemployed', 'Student', 'Businessman', 'Maternity leave']","[158774, 71617, 55362, 21703, 22, 18, 10, 5]",8
+NAME_EDUCATION_TYPE,"['Secondary / secondary special', 'Higher education', 'Incomplete higher', 'Lower secondary', 'Academic degree']","[218391, 74863, 10277, 3816, 164]",5
+NAME_FAMILY_STATUS,"['Single / not married', 'Married', 'Civil marriage', 'Widow', 'Separated', 'Unknown']","[196432, 45444, 29775, 19770, 16088, 2]",6
+NAME_HOUSING_TYPE,"['House / apartment', 'Rented apartment', 'With parents', 'Municipal apartment', 'Office apartment', 'Co-op apartment']","[272868, 14840, 11183, 4881, 2617, 1122]",6
+OCCUPATION_TYPE,"['Laborers', 'Core staff', 'Accountants', 'Managers', nan, 'Drivers', 'Sales staff', 'Cleaning staff', 'Cooking staff', 'Private service staff', 'Medicine staff', 'Security staff', 'High skill tech staff', 'Waiters/barmen staff', 'Low-skill Laborers', 'Realty agents', 'Secretaries', 'IT staff', 'HR staff']","[55186, 32102, 27570, 21371, 18603, 11380, 9813, 8537, 6721, 5946, 4653, 2652, 2093, 1348, 1305, 751, 563, 526]",18
+WEEKDAY_APPR_PROCESS_START,"['WEDNESDAY', 'MONDAY', 'THURSDAY', 'SUNDAY', 'SATURDAY', 'FRIDAY', 'TUESDAY']","[53901, 51934, 50714, 50591, 50338, 33852, 16181]",7
+ORGANIZATION_TYPE,"['Business Entity Type 3', 'School', 'Government', 'Religion', 'Other', 'XNA', 'Electricity', 'Medicine', 'Business Entity Type 2', 'Self-employed', 'Transport: type 2', 'Construction', 'Housing', 'Kindergarten', 'Trade: type 7', 'Industry: type 11', 'Military', 'Services', 'Security Ministries', 'Transport: type 4', 'Industry: type 1', 'Emergency', 'Security', 'Trade: type 2', 'University', 'Transport: type 3', 'Police', 'Business Entity Type 1', 'Postal', 'Industry: type 4', 'Agriculture', 'Restaurant', 'Culture', 'Hotel', 'Industry: type 7', 'Trade: type 3', 'Industry: type 3', 'Bank', 'Industry: type 9', 'Insurance', 'Trade: type 6', 'Industry: type 2', 'Transport: type 1', 'Industry: type 12', 'Mobile', 'Trade: type 1', 'Industry: type 5', 'Industry: type 10', 'Legal Services', 'Advertising', 'Trade: type 5', 'Cleaning', 'Industry: type 13', 'Trade: type 4', 'Telecom', 'Industry: type 8', 'Realtor', 'Industry: type 6']","[67992, 55374, 38412, 16683, 11193, 10553, 10404, 8893, 7831, 6880, 6721, 5984, 5398, 3492, 3368, 3278, 3247, 2958, 2704, 2634, 2507, 2454, 2341, 2204, 2157, 1974, 1900, 1811, 1575, 1327, 1307, 1187, 1039, 966, 950, 877, 631, 599, 597, 577, 560, 458, 429, 396, 379, 369, 348, 317, 305, 260, 201, 112, 109, 85, 67, 64, 49, 24]",58
+FONDKAPREMONT_MODE,"['reg oper account', nan, 'org spec account', 'reg oper spec account', 'not specified']","[73830, 12080, 5687, 5619]",4
+HOUSETYPE_MODE,"['block of flats', nan, 'terraced house', 'specific housing']","[150503, 1499, 1212]",3
+WALLSMATERIAL_MODE,"['Stone, brick', 'Block', nan, 'Panel', 'Mixed', 'Wooden', 'Others', 'Monolithic']","[66040, 64815, 9253, 5362, 2296, 1779, 1625]",7
+EMERGENCYSTATE_MODE,"['No', nan, 'Yes']","[159428, 2328]",2
