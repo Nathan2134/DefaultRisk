@@ -2,7 +2,10 @@
 """
 Created on Sat Jul 14 11:40:59 2018
 
-@author: Admin
+This file applies the Gradient Boosting Machine algorithm from H2O.ai
+on the training data.
+
+@author: Nathan Chen
 """
 
 import numpy as np
@@ -11,13 +14,15 @@ from h2o.estimators.gbm import H2OGradientBoostingEstimator
 import h2o
 import os
 
+# Check current working directory
 os.getcwd()
 
 h2o.init()
 # Load training data
 app_train = h2o.import_file(path = '../Data/application_train.csv')
-# Ensure to make the y variable a factor, otherwise the training result may
-# return a negative number
+""" Ensure to make the y variable, "TARGET", a factor, since we are doing classification
+otherwise the model interprets y as between 0 and 1, and
+prediction results may return a negative number  """
 app_train[["TARGET"]] = app_train[["TARGET"]].asfactor()
 # Specify the model
 gbm_model = H2OGradientBoostingEstimator()
