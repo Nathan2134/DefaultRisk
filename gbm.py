@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
 """
 Created on Sat Jul 14 11:40:59 2018
-Perform a simple estimation using Gradient Boosting Machine
-@author: Nathan
+
+This file applies the Gradient Boosting Machine algorithm from H2O.ai
+on the training data.
+
+@author: Nathan Chen
 """
 
 import numpy as np
@@ -12,10 +15,12 @@ from h2o.estimators.gbm import H2OGradientBoostingEstimator
 import h2o
 import os
 
+# Check current working directory
 os.getcwd()
 
 h2o.init()
 # Load training data
+
 # app_train = h2o.import_file(path = '../Data/app_train_poly.csv')
 app_train = pd.read_csv("../Data/app_train_with_bureau.csv")
 app_train[["TARGET"]] = app_train[["TARGET"]].astype("object")
@@ -33,6 +38,7 @@ print(pd.DataFrame(app_train.columns).to_string())
 
 # Ensure to make the y variable a factor, otherwise the training result may
 # return a negative number
+
 app_train[["TARGET"]] = app_train[["TARGET"]].asfactor()
 app_train[['EXT_SOURCE_1']] = app_train[['EXT_SOURCE_1']].asnumeric()
 
@@ -90,4 +96,3 @@ h2o.cluster().shutdown()
 # change column name yet
 
 # This scores an AUC of 0.738
-
