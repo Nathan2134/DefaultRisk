@@ -18,11 +18,11 @@ import os
 # Check current working directory
 os.getcwd()
 
-h2o.init()
+h2o.init(max_mem_size = "12g")
 # Load training data
 
 # app_train = h2o.import_file(path = '../Data/app_train_poly.csv')
-app_train = pd.read_csv("../Data/app_train_with_bureau.csv")
+app_train = pd.read_csv("../Data/app_train_with_extra.csv")
 app_train[["TARGET"]] = app_train[["TARGET"]].astype("object")
 
 # Make sure that the H2O package reads the data as the correct types for
@@ -43,13 +43,14 @@ app_train[["TARGET"]] = app_train[["TARGET"]].asfactor()
 app_train[['EXT_SOURCE_1']] = app_train[['EXT_SOURCE_1']].asnumeric()
 
 # Specify the model
-gbm_model = H2OGradientBoostingEstimator()
+gbm_model = H2OGradientBoostingEstimator(ntrees=50, max_depth=7, nfolds=5)
 # Train the model, put all parameters other than "TARGET" in, the first column is
 # "TARGET", the y variable
 gbm_model.train(x=app_train.names[2:], y = app_train.names[1], training_frame = app_train)
+gbm_model.show()
 # Load test set
 #app_test = h2o.import_file(path = '../Data/app_test_poly.csv')
-app_test = pd.read_csv("../Data/app_test_with_bureau.csv")
+app_test = pd.read_csv("../Data/app_test_with_extra.csv")
 data_type_list = []
 # Make sure that the H2O package reads the data as the correct types for
 # each column

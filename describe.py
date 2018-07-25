@@ -28,7 +28,7 @@ import seaborn as sns
 print(os.listdir("../Data"))
 
 # Input data
-input_data = pd.read_csv('../Data/bureau_balance.csv')
+input_data = pd.read_csv('../Data/bureau.csv')
 print('Training data shape: ', input_data.shape)
 input_data.head()
 
@@ -38,6 +38,9 @@ for col in input_data:
     if input_data[col].dtype == 'object': 
         unique_val = input_data[col].unique().tolist()
         val_counts = input_data[col].value_counts().tolist()
+        if input_data[col].nunique() > 100:
+            text_stat.append([col, "More than 100 unique values exist", 0, input_data[col].nunique()])
+            continue
         text_stat.append([col, unique_val,val_counts, input_data[col].nunique()])
     # If numerical
     else:
