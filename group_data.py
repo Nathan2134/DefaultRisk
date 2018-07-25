@@ -11,6 +11,7 @@ import numpy as np
 import pandas as pd 
 import gc
 
+
 # Group bureau.csv with bureau_balance.csv
 bureau_balance = pd.read_csv('../Data/bureau_balance.csv')
 bureau = pd.read_csv('../Data/bureau.csv')
@@ -20,11 +21,13 @@ print("Dimensions of the data to be added: ", bureau.shape)
 # (1716428, 19) for combined bureau and bureau balance data
 
 # Training and test data
+
 app_train = pd.read_csv("../Data/application_train.csv")
 app_test = pd.read_csv("../Data/application_test.csv")
 
 # Group by mean
 bureau = bureau.groupby(["SK_ID_CURR"], as_index = False).mean()
+
 
 # Attach back to the training and test data
 app_train = app_train.merge(bureau, on = 'SK_ID_CURR', how = 'left') 
@@ -88,3 +91,4 @@ app_test = app_test.merge(previous_application, on = "SK_ID_CURR", how = 'left')
 app_train.to_csv("../Data/app_train_with_extra.csv", index = False)
 app_test.to_csv("../Data/app_test_with_extra.csv", index = False)
 gc.collect()
+
